@@ -33,7 +33,70 @@ header:before{
 }
 .headtitle{font-size: 31px;text-align: center;margin-top: 25%;}
 .headtitle span{display: block;}
-.ul{margin-top: 55px;padding: 0 20px;margin-bottom: 55px;}
-.li{display: inline-block;height:50px;float: left;width: 50%;text-align: left;}
-.li:nth-child(2),.li:nth-child(4){padding-left: 25px;}
-.btn{background-color: #fff;color: #43B690;font-size: 18px;width:190px;line-height:40px;text-align:center;margin: 0 auto;border-radius: 5px;}
+.ul{margin-top: 60px;padding: 0 20px;margin-bottom: 55px;height: 100px;}
+.li{display: inline-block;height:50px;float: left;width: 50%;text-align: center;position: relative;opacity: 0;}
+@keyframes flyfromleft{
+	from{
+			left:-300px;
+			display: inline-block;
+			opacity: 0;
+	}
+	to{
+			left: 0;
+			display: inline-block;
+			opacity: 1;
+			
+	}    
+}
+.flyfromleft{
+	animation: flyfromleft 0.25s alternate;
+	animation-fill-mode: forwards;
+}
+@keyframes flyfromright{
+	from{
+			right:-300px;
+			display: inline-block;
+			opacity: 0;
+	}
+	to{
+			right: 0;
+			display: inline-block;
+			opacity: 1;
+	}    
+}
+.flyfromright{
+	animation: flyfromright 0.25s alternate;
+	animation-fill-mode: forwards;
+}
+@keyframes btnshow{
+	0%{
+		opacity: 0;
+	}
+	30%{
+		opacity: 1;
+		top:-3px;
+	}
+	40%{
+		opacity: 1;
+		top:0;
+	}
+	50%{
+		opacity: 1;
+		top:-3px;
+	}
+	60%{opacity: 1;top:0;}
+	70%{opacity: 1;top:-3px;}
+	80%{opacity: 1;top:0;}
+	90%{opacity: 1;top:-3px;}
+	100%{opacity: 1;top:0;}
+}
+.btnshow{
+	animation: btnshow 1s ease-in;
+	animation-fill-mode: forwards;
+	animation-delay: 1.2s;
+}
+.one{}
+.two{animation-delay: 0.25s;}
+.three{animation-delay: 0.5s;}
+.four{animation-delay: 0.75s;}
+.btn{position:relative;opacity:0;background-color: #fff;color: #43B690;font-size: 18px;width:190px;line-height:40px;text-align:center;margin: 0 auto;border-radius: 5px;}
