@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>条形图</title>
+		<style>
+			.chart {
+				width: 300px;
+				position: relative;
+				margin: 0 auto;
+				border-bottom: 1px solid #ccc;
+			}
+			
+			.bar {
+				height: 170px;
+				width: 20px;
+				position: relative;
+				display: inline-block;
+				margin: 0 7px;
+			}
+			
+			.bar-div {
+				justify-content: space-around;
+				display: flex;
+				padding-top: 20px;
+			}
+			
+			.bar-percent {
+				background-color: #24BA09;
+				display: inline-block;
+				position: absolute;
+				bottom: 0;
+				width: 20px;
+				color: #fff;
+				line-height: 1.2;
+				text-align: center;
+				font-size: 12px;
+			}
+			
+			.num-percent {
+				font-size: 10px;
+				color: #999;
+				position: absolute;
+				top: -13px;
+				left: 0;
+			}
+			
+			.percent-subject {
+				position: relative;
+				top: 0%;
+			}
+		</style>
+		<script type="text/javascript" src="http://img.wangxiao.cn/js/jquery-1.8.1.min.js"></script>
+		<script>
+			window.onload=function(){
+				//为了兼容ie8，设置条形图的每个条形的margin值来定位
+				var outWidth=$('.bar-div').width();
+				var len=$('.bar-div .bar').length;
+				var width=$('.bar-div .bar').width();
+				var marginNum=(outWidth-len*width)/len/2-2;
+				$('.bar-div .bar').each(function(){
+					$(this).css({"margin":"0 "+marginNum+"px"});
+				});
+				//设置条形图中文字上下居中
+				$(".percent-subject").each(function(){
+					var outHeight=$(this).parent().height();
+					var height=$(this).height();
+					var result=(outHeight-height)/2;
+					$(this).css({"top":result+"px"});
+				});
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="chart">
+			<div class="bar-div">
+				<span class="bar">
+								<span class="bar-percent" style="height:86%"><span class="num-percent">86%</span><span class="percent-subject">药学综合知识</span></span>
+				</span>
+				<span class="bar">
+								<span class="bar-percent" style="height:99%"><span class="num-percent">99%</span><span class="percent-subject">药学一</span></span>
+				</span>
+				<span class="bar">
+								<span class="bar-percent" style="height:78%"><span class="num-percent">78%</span><span class="percent-subject">药学二</span></span>
+				</span>
+				<span class="bar">
+								<span class="bar-percent" style="height:84%"><span class="num-percent">84%</span><span class="percent-subject">中药学综合知识</span></span>
+				</span>
+				<span class="bar">
+								<span class="bar-percent" style="height:60%"><span class="num-percent">60%</span><span class="percent-subject">中药一</span></span>
+				</span>
+				<span class="bar">
+								<span class="bar-percent" style="height:93%"><span class="num-percent">93%</span><span class="percent-subject">中药二</span></span>
+				</span>
+				<span class="bar">
+								<span class="bar-percent" style="height:80%"><span class="num-percent">80%</span><span class="percent-subject">药事管理</span></span>
+				</span>
+			</div>
+		</div>
+	</body>
+
+</html>

@@ -4,7 +4,6 @@ module.exports = {
 	entry: ['./main.js'],
 	output: {
 		path:path.resolve(__dirname,'/build'), // This is where images AND js will go
-		publicPath: './build/', // This is used to generate URLs
 		filename: 'bundle.js'
 	},
 	module: {
